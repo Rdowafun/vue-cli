@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="wrapper">
+    <Header :title="logo" :names="names" @send="title = $event" />
+    <h1>{{ title }}</h1>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "@/components/Header.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Header,
+  },
+  data() {
+    return {
+      title: "Vuejs Init",
+      logo: "Мы используем props",
+      names: ["кнопка 1", "кнопка 2", "кнопка 3"],
+    };
+  },
+  // methods: {
+  //   getTitle(name) {
+  //     this.title = name;
+  //   },
+  // },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
